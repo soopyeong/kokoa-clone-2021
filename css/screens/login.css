@@ -33,7 +33,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 #login-form input:focus {
-  border-color: var(--yellow);
+  border-color: var(--blue);
 }
 #login-form input[type="submit"] {
   background-color: var(--blue);
