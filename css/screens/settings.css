@@ -6,6 +6,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.settings__setting-column {
+  display: flex;
+}
 
 .settings__setting i {
   margin-right: 20px;
@@ -14,4 +17,12 @@
 
 .settings__setting-column:last-child {
   opacity: 0.5;
+}
+
+.settings-list:first-child .settings__setting:last-child {
+  padding-bottom: 35px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.settings-list:last-child .settings__setting:first-child {
+  padding-top: 35px;
 }

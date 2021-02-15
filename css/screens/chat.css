@@ -1,5 +1,5 @@
 #chat-screen {
-  background-color: #abc1d1;
+  background-color: white;
   height: 150vh;
 }
 #chat-screen-bar {
@@ -11,17 +11,37 @@
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  background-color: #abc1d1;
+  background-color: white;
   z-index: 1;
 }
 #chat-screen .status-bar {
-  background-color: #abc1d1;
+  background-color: white;
   z-index: 2;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInRight {
   from {
-    transform: translateY(10px);
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fadeInTop {
+  from {
+    transform: translateY(-20px);
     opacity: 0;
   }
   to {
@@ -35,7 +55,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeIn 0.3s linear;
 }
 
 .chat__timestamp {
@@ -45,14 +64,18 @@
   border-radius: 20px;
   font-size: 14px;
   margin-bottom: 25px;
+  animation: fadeInTop 0.3s linear;
 }
 
 .message-row {
   width: 100%;
   display: flex;
   margin-bottom: 25px;
+  animation: fadeInLeft 0.3s linear;
 }
-.message-row img {
+
+.message-row__img-shopping,
+.message-row > img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -71,13 +94,46 @@
 }
 
 .message__bubble {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 10px 13px;
   border-radius: 15px;
   font-size: 18px;
   border-top-left-radius: 0px;
   margin-right: 5px;
 }
+
+.message__bubble-ad {
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+}
+.message__bubble-ad > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.message__bubble-ad > span {
+  margin: 10px 5px;
+  font-weight: 600;
+}
+.message__bubble-ad button {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 90px;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+.message__bubble-ad--btn {
+  margin-bottom: 10px;
+}
+
 .message__time {
   opacity: 0.8;
   font-size: 14px;
@@ -85,9 +141,11 @@
 
 .message-row--own {
   justify-content: flex-end;
+  animation: fadeInRight 0.3s linear;
 }
 .message-row--own .message__bubble {
-  background-color: var(--yellow);
+  background-color: var(--blue);
+  color: white;
   border-top-right-radius: 0px;
   border-top-left-radius: 15px;
   margin-right: 0px;
@@ -143,7 +201,7 @@
 }
 
 .reply__column button {
-  background-color: var(--yellow);
+  background-color: var(--blue);
   border: none;
   width: 30px;
   height: 30px;
@@ -152,6 +210,7 @@
 
 .reply__column button i {
   opacity: 1;
+  color: white;
 }
 
 .reply__column button:focus,

@@ -23,3 +23,7 @@
   justify-content: flex-end;
   align-items: center;
 }
+
+.alt-header__title-shopping {
+  font-size: 18px;
+}
